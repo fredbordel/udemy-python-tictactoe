@@ -1,4 +1,5 @@
 from IPython.display import clear_output
+import random
 
 
 def display_board(board):
@@ -47,9 +48,27 @@ def win_check(board, mark):
             (board[3] == mark and board[5] == mark and board[7] == mark))
 
 
+def choose_first():
+    first_player = random.randint(1, 2)
+    return(f'Player {first_player}')
+
+
+def space_check(board, position):
+    return board[position] == ""
+
+
+def full_board_check(board):
+    if "" in board:
+        print(True)
+    else:
+        print(False)
+
+
 test_board = ['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
 # print(player_input()[0])
 # display_board(test_board)
 # place_marker(test_board, '$', 1)
 # display_board(test_board)
 # win_check(test_board, 'X')
+# space_check(test_board, 8)
+# full_board_check(test_board)
