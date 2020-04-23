@@ -33,8 +33,23 @@ def place_marker(board, marker, position):
     board[position] = marker
 
 
-# print(player_input()[0])
+def win_check(board, mark):
+            # full row
+    return ((board[1] == mark and board[2] == mark and board[3] == mark) or
+            (board[4] == mark and board[5] == mark and board[6] == mark) or
+            (board[7] == mark and board[8] == mark and board[9] == mark) or
+            # full column
+            (board[1] == mark and board[4] == mark and board[7] == mark) or
+            (board[2] == mark and board[5] == mark and board[8] == mark) or
+            (board[3] == mark and board[6] == mark and board[9] == mark) or
+            # full diagonal
+            (board[1] == mark and board[5] == mark and board[9] == mark) or
+            (board[3] == mark and board[5] == mark and board[7] == mark))
+
+
 test_board = ['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+# print(player_input()[0])
 # display_board(test_board)
-place_marker(test_board, '$', 1)
-display_board(test_board)
+# place_marker(test_board, '$', 1)
+# display_board(test_board)
+# win_check(test_board, 'X')
