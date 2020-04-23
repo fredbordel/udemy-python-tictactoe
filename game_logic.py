@@ -3,10 +3,7 @@ import random
 
 
 def display_board(board):
-
     clear_output()
-    # Printing board
-    # board = list
     third_row = ""
     second_row = ""
     first_row = ""
@@ -23,7 +20,8 @@ def display_board(board):
 def player_input():
     marker = ''
     while not (marker == 'X' or marker == 'O'):
-        marker = input('Player 1: Would you like to be X or O? ').upper()
+        marker = input(
+            f'Player 1: Would you like to be X or O? ').upper()
     if marker == 'X':
         return ('X', 'O')
     else:
@@ -58,27 +56,30 @@ def space_check(board, position):
 
 
 def full_board_check(board):
-    if '' in board or ' ' in board:
-        print(False)
-    else:
-        print(True)
+    for i in range(1, 10):
+        if space_check(board, i):
+            return False
+    return True
 
 
 def player_choice(board):
-    player_position = int(input('Please enter a number between 1 and 9: '))
-    if space_check(board, player_position):
-        return(player_position)
+    position = 0
+    while position not in [1, 2, 3, 4, 5, 6, 7, 8, 9] or not space_check(board, position):
+        position = int(input('Choose your next position: (1-9) '))
+    return position
+
+
+def replay():
+    player_decision = input('Would you like to play again? Y or N: ').upper()
+    if player_decision == 'Y':
+        return True
     else:
-        print('This spot is not available.')
-        player_position = int(input('Please enter a number between 1 and 9: '))
+        return False
 
 
-test_board = ['#', ' ', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
-# print(player_input()[0])
-# display_board(test_board)
-# place_marker(test_board, '$', 1)
-# display_board(test_board)
-# win_check(test_board, 'X')
-# space_check(test_board, 8)
-# full_board_check(test_board)
-player_choice(test_board)
+def ready_to_play():
+    player_decision = input('Are you ready to play? Y or N: ').upper()
+    if player_decision == 'Y':
+        return True
+    else:
+        return False
