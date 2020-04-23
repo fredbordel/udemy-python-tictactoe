@@ -54,17 +54,26 @@ def choose_first():
 
 
 def space_check(board, position):
-    return board[position] == ""
+    return board[position] == ' '
 
 
 def full_board_check(board):
-    if "" in board:
-        print(True)
-    else:
+    if '' in board or ' ' in board:
         print(False)
+    else:
+        print(True)
 
 
-test_board = ['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+def player_choice(board):
+    player_position = int(input('Please enter a number between 1 and 9: '))
+    if space_check(board, player_position):
+        return(player_position)
+    else:
+        print('This spot is not available.')
+        player_position = int(input('Please enter a number between 1 and 9: '))
+
+
+test_board = ['#', ' ', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
 # print(player_input()[0])
 # display_board(test_board)
 # place_marker(test_board, '$', 1)
@@ -72,3 +81,4 @@ test_board = ['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
 # win_check(test_board, 'X')
 # space_check(test_board, 8)
 # full_board_check(test_board)
+player_choice(test_board)
