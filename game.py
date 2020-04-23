@@ -21,7 +21,7 @@ def display_board(board):
 
 def player_input():
     marker = ''
-    while not (marker == 'X' or marke == 'O'):
+    while not (marker == 'X' or marker == 'O'):
         marker = input('Player 1: Would you like to be X or O? ').upper()
     if marker == 'X':
         return ('X', 'O')
@@ -29,5 +29,12 @@ def player_input():
         return ('O', 'X')
 
 
+def place_marker(board, marker, position):
+    board[position] = marker
+
+
+# print(player_input()[0])
 test_board = ['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
+# display_board(test_board)
+place_marker(test_board, '$', 1)
 display_board(test_board)
