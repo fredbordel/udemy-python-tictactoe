@@ -6,5 +6,5 @@ Created for learning purposes, from : https://www.udemy.com/course/complete-pyth
 
 ## How to play
 
-* Clone the repository on your computer.
-* On the project directory, in the command line, enter: >> python play_game.py
+* Clone the repository on your computer
+* On the project directory, in the command line, enter >> python play_game.py
